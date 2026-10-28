@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corrente do Bem | Apoio e Conscientização sobre o Autismo</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f8fafc;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+header {
+  background: white;
+  padding: 16px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  color: #0284c7;
+  font-size: 20px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn {
+  display: inline-block;
+  background: #0284c7;
+  color: white;
+  padding: 14px 26px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn:hover {
+  background: #0369a1;
+  transform: translateY(-1px);
+}
+
+.hero {
+  padding: 70px 6%;
+  background: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 100%);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.tag {
+  display: inline-block;
+  background: #bae6fd;
+  color: #0369a1;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+
+h1 {
+  font-size: clamp(34px, 4.5vw, 54px);
+  line-height: 1.15;
+  color: #0f172a;
+  margin-bottom: 18px;
+  font-weight: 800;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #475569;
+  margin-bottom: 24px;
+}
+
+.hero-media {
+  position: relative;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+}
+
+.hero-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 12px 20px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-badge span {
+  font-size: 24px;
+}
+
+.hero-badge p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+section {
+  padding: 70px 6%;
+}
+
+.heading {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 40px;
+}
+
+h2 {
+  color: #0f172a;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.heading p {
+  color: #64748b;
+  font-size: 17px;
+}
+
+/* CARDS DE PILARES COM IMAGENS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 22px;
+}
+
+.card h3 {
+  color: #0f172a;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: #64748b;
+  font-size: 15px;
+}
+
+/* SEÇÃO GALERIA DE ATIVIDADES */
+.gallery-section {
+  background: #ffffff;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  height: 220px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 25px 12px 10px;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ÁREA DE DOAÇÃO (VALOR FIXO) */
+.donation {
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+}
+
+.panel {
+  max-width: 680px;
+  margin: auto;
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.fixed-amount-box {
+  background: #f0f9ff;
+  border: 2px solid #0284c7;
+  border-radius: 18px;
+  padding: 24px;
+  margin: 28px 0;
+}
+
+.fixed-amount-box .label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0369a1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fixed-amount-box .value {
+  font-size: 44px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 6px 0;
+}
+
+.fixed-amount-box .sub {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.notice {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  padding: 14px;
+  border-radius: 12px;
+  color: #92400e;
+  font-size: 13px;
+  margin: 20px 0 10px;
+  text-align: left;
+}
+
+.small {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 14px;
+  text-align: center;
+}
+
+footer {
+  padding: 35px 6%;
+  background: #0f172a;
+  color: white;
+  text-align: center;
+}
+
+footer p {
+  color: #94a3b8;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 45px 6%;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .panel {
+    padding: 26px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">💙 Corrente do Bem</div>
+  <a class="btn" href="#doar">Doar R$ 10</a>
+</header>
+
+<main>
+
+<!-- HERO COM FOTO HUMANIZADA -->
+<section class="hero">
+  <div>
+    <span class="tag">RESPEITO • ACOLHIMENTO • INCLUSÃO</span>
+    <h1>Cada gesto transforma o futuro de quem precisa.</h1>
+    <p>
+      O apoio precoce, o acesso a terapias adequadas e o acolhimento
+      das famílias fazem toda a diferença no desenvolvimento de pessoas com TEA.
+    </p>
+
+    <a class="btn" href="#doar">💙 Participar com R$ 10</a>
+
+    <p class="small" style="text-align: left; margin-top: 15px;">
+      Campanha independente de conscientização e apoio.
+    </p>
+  </div>
+
+  <div class="hero-media">
+    <img 
+      src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80" 
+      alt="Cuidado, acolhimento e carinho com crianças"
+    >
+    <div class="hero-badge">
+      <span>🧩</span>
+      <div>
+        <p>Apoio contínuo às famílias</p>
+        <small style="color: #64748b;">Inclusão que transforma vidas</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILARES DE APOIO COM FOTOS ILUSTRATIVAS -->
+<section>
+  <div class="heading">
+    <h2>Como o acolhimento faz a diferença</h2>
+    <p>
+      Conheça as áreas fundamentais de atenção e desenvolvimento que sua doação apoia.
+    </p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <img 
+        src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=600&q=80" 
+        alt="Estímulo cognitivo e lúdico com blocos pedagógicos"
+      >
+      <div class="card-content">
+        <h3>Desenvolvimento e Brincar</h3>
+        <p>
+          Atividades pedagógicas e lúdicas com brinquedos estruturados estimulam a comunicação, foco e autonomia.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img 
+        src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=600&q=80" 
+        alt="Terapia sensorial e integração"
+      >
+      <div class="card-content">
+        <h3>Integração Sensorial</h3>
+        <p>
+          Espaços adaptados e materiais sensoriais auxiliam na autorregulação e no bem-estar cotidiano.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img 
+        src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" 
+        alt="Inclusão escolar e comunitária"
+      >
+      <div class="card-content">
+        <h3>Inclusão Escolar e Social</h3>
+        <p>
+          Iniciativas que capacitam educadores e a comunidade para um ambiente seguro, acolhedor e sem preconceito.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA DE ATIVIDADES E IMPACTO -->
+<section class="gallery-section">
+  <div class="heading">
+    <h2>Imagens do dia a dia da inclusão</h2>
+    <p>Momentos de aprendizado, expressão artística e suporte mútuo.</p>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img 
+        src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=500&q=80" 
+        alt="Expressão através de arte e pintura"
+      >
+      <div class="gallery-label">Expressão e Arte</div>
+    </div>
+
+    <div class="gallery-item">
+      <img 
+        src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=500&q=80" 
+        alt="Sorrisos e convivência"
+      >
+      <div class="gallery-label">Convivência Social</div>
+    </div>
+
+    <div class="gallery-item">
+      <img 
+        src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=500&q=80" 
+        alt="Leitura e apoio escolar"
+      >
+      <div class="gallery-label">Educação Adaptada</div>
+    </div>
+
+    <div class="gallery-item">
+      <img 
+        src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=500&q=80" 
+        alt="Cuidado e atenção individualizada"
+      >
+      <div class="gallery-label">Atenção Individualizada</div>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO DE DOAÇÃO EXCLUSIVA DE R$ 10 -->
+<section class="donation" id="doar">
+  <div class="panel">
+    <h2>Participe da Corrente de Solidariedade</h2>
+    <p style="color: #64748b; margin-top: 8px;">
+      Uma contribuição acessível que, somada a muitas outras, gera um grande impacto.
+    </p>
+
+    <div class="fixed-amount-box">
+      <div class="label">Contribuição Única</div>
+      <div class="value">R$ 10,00</div>
+      <div class="sub">Doação direta para apoio às ações da campanha</div>
+    </div>
+
+    <a
+      class="btn"
+      style="width: 100%; text-align: center; font-size: 18px; padding: 18px;"
+      href="https://blackpix.ai.studio/checkout/oferta-04d8c8a3"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Doar R$ 10,00 Agora ↗
+    </a>
+
+    <div class="notice">
+      <strong>Aviso de transparência:</strong> Esta página é independente. Verifique sempre o nome do titular e os dados do recebedor na tela de pagamento antes de efetivar sua transferência.
+    </div>
+
+    <p class="small">
+      Você será redirecionado para o ambiente de checkout seguro para concluir o pagamento de R$ 10,00.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <strong>💙 Corrente do Bem — Conscientização e Apoio ao Autismo</strong>
+  <p>Incentivando respeito, suporte e dignidade para pessoas autistas e suas famílias.</p>
+  <p>Página independente de conscientização.</p>
+</footer>
+
+</body>
+</html>
